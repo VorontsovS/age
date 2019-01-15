@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="./styles/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-->
+    </html>
+<body>
+	<script>
+		const people = [
+			{name: 'Alex1', birth: '1990-01-01'},
+			{name: 'Alex2', birth: '1980-05-05'},
+			{name: 'Alex2', birth: '2000-10-10'},			
+		];
+		const Human = function(data) {
+			let today = new Date();
+			let birthDate = new Date(data.birth);
+			let age = today.getFullYear() - birthDate.getFullYear();
+			let m = today.getMonth() - birthDate.getMonth();
+			if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
+			{
+				age --;
+			}
+			return {age};
+			}
+		const obj = new Human(people[0]);
+		console.log (obj);
+		<!--  не понял как вытащить namber из age -->
+		function plural(n,str1,str2,str5){return n + ' ' + ((((n%10)==1)&&((n%100)!=11))?(str1):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(str2):(str5)))}
+		console.log (people[0].name, plural(29, 'год', 'года', 'лет'));
+	</script>
+</body>
+</html>
